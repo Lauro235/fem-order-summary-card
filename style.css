@@ -1,0 +1,229 @@
+/* 
+
+=========
+Resources
+=========
+
+Styling Text in one declaration
+
+https://www.geeksforgeeks.org/how-to-set-all-the-font-properties-in-one-declaration-using-css/
+
+https://www.youtube.com/watch?v=na2BRPRQQQQ&ab_channel=SteveGriffith-Prof3ssorSt3v3
+
+Font property only works when
+properties take following order.
+
+font-style
+font-variant
+font-weight
+font-size
+line-height
+font-family
+
+The font property will NOT work if you have commas separating values (other than the font families)
+
+The font property MUST HAVE AT LEAST the size and font family property values to work.
+
+It's best practice to append a forward slash after the font size if using a line height value.
+
+*/
+
+/* 
+=========
+Fonts
+=========
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap');
+
+/* font-family: 'Red Hat Display', sans-serif; */
+
+/* 
+=========
+Variables
+=========
+*/
+
+:root {
+    /* primary colors */
+    --var-pale-blue: hsl(225, 100%, 94%);
+    --var-bright-blue: hsl(245, 75%, 52%);
+    /* neutral colors */
+    --var-very-pale-blue: hsl(225, 100%, 98%);
+    --var-desaturated-blue: hsl(224, 23%, 55%);
+    --var-dark-blue: hsl(223, 47%, 23%);
+    /* fonts */
+    --var-h1: normal normal 900 1.3rem 'Red Hat Display', sans-serif; 
+    --var-h2: normal normal 700 1rem 'Red Hat Display', sans-serif;
+    --var-generic: normal normal 500 .9rem 'Red Hat Display', sans-serif;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+}
+
+/*
+==========
+Basic Selectors
+==========
+*/
+
+body {
+    background-color: var(--var-pale-blue);
+}
+
+section {
+width: 90%;
+max-width: 450px;
+margin: 1em auto;
+} /* See .buttons for equivalent layout */
+
+h1, h2 {
+    color: var(--var-dark-blue);
+}
+
+h1 {
+    font: var(--var-h1);
+    text-align: center;
+    padding-bottom: .8em;
+}
+
+h2, button, a {
+    font: var(--var-h2);
+}
+
+/* a.plan-anchor {} */
+
+a.plan-anchor:hover, a.plan-anchor:focus {
+    color: rgba(56, 41, 224, 0.65);
+    cursor: pointer;
+}
+
+p {
+    font: var(--var-generic);
+    color: var(--var-desaturated-blue);
+    text-align: center;
+}
+
+button {
+    border: none;
+    border-radius: 8px;
+    padding: .6em;
+    margin-bottom: .3em;
+}
+
+/*
+==============
+Class and ID selectors
+==============
+*/
+
+section.hero-text {
+    margin-top: 0rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-text p {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.row, .plan, .col {
+    display: flex;
+}
+
+.row {
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--var-very-pale-blue);
+    padding: 1em;
+}
+
+.plan {
+    justify-content: flex-start;
+    align-items: center;
+    width: 73%;
+}
+
+.plan svg {
+    margin-right: 1em;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.buttons {
+    width: 90%;
+    max-width: 450px;
+    margin: 1em auto;
+}
+
+button.blue {
+    background-color: var(--var-bright-blue);
+    color: var(--var-pale-blue);
+    box-shadow: 0px 10px 6px 0px;
+}
+
+button.blue:hover, button.blue:focus {
+    background-color:rgba(56, 41, 224, 0.65);
+    cursor: pointer;
+}
+
+/* rgba: 56 41 224 1; */
+
+button.transparent {
+    background-color: transparent;
+    color: var(--var-desaturated-blue);
+}
+
+button.transparent:hover, button.transparent:focus {
+    color: var(--var-dark-blue);
+    cursor: pointer;
+}
+
+/* 
+==========
+Layout
+==========
+*/
+
+.background-container {
+    margin: -7rem .8rem 2rem .8rem;
+}
+
+.content-container {
+    width: 85%;
+    max-width: 550px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0px 10px 15px -15px var(--var-desaturated-blue);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+.hero-image {
+    margin-bottom: -38%;
+    width: 100%;
+}
+
+.attribution {
+    font-size: .8rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+.attribution a { color: hsl(228, 45%, 44%); }
+
+@media (min-width:600px) {
+        .hero-text p {
+            width: 75%;
+            letter-spacing: .1em;
+    }
+}
