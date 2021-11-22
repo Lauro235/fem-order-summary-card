@@ -194,8 +194,19 @@ Layout
 ==========
 */
 
+.mobile-bg {
+    visibility: initial;
+}
+.desktop-bg {
+    display: none;
+}
+
 .background-container {
-    margin: -7rem .8rem 2rem .8rem;
+    margin: auto;
+    background-image: url(images/pattern-background-mobile.svg);
+    background-size: 100vw 80vh;
+    background-repeat: no-repeat;
+    background-position: 0% 0;  
 }
 
 .content-container {
@@ -205,9 +216,8 @@ Layout
     background-color: white;
     box-shadow: 0px 10px 15px -15px var(--var-desaturated-blue);
     border-radius: 10px;
-    overflow: hidden;
+    overflow: visible;
 }
-
 
 .hero-image {
     margin-bottom: -38%;
@@ -215,15 +225,21 @@ Layout
 }
 
 .attribution {
+    position: relative;
     font-size: .8rem;
     text-align: center;
     margin-top: 1rem;
 }
 .attribution a { color: hsl(228, 45%, 44%); }
 
+@media (min-width:376px) {
+    .background-container {
+        background-image: url(images/pattern-background-desktop.svg);        
+}
+}
 @media (min-width:600px) {
         .hero-text p {
             width: 75%;
             letter-spacing: .1em;
-    }
+        }
 }
